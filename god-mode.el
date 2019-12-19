@@ -249,7 +249,8 @@ sequence."
   "Return an alternative key string of KEY-LIST by assuming
 `god-literal-key' was pressed right before the last keystroke."
   (when (and god-mode-can-omit-literal-key
-             (not (string= "" (cadr key-list))))
+             (not (string= "" (cadr key-list)))
+             (car key-list))
     (let* ((alt-key-string
             (concat (car key-list) (caddr key-list)))
            (key-binding (read-kbd-macro alt-key-string t)))
